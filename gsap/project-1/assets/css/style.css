@@ -1,0 +1,452 @@
+@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&family=Roboto:ital,wght@0,100..900;1,100..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+
+@font-face {
+  font-family: "FK Screamer";
+  src: url("../fonts/FKScreamerTrial-Medium-BF6571330a5823d.otf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  font-family: "Roboto", monospace;
+  width: 100%;
+  height: 100%;
+}
+
+.container {
+  overflow: hidden;
+}
+
+img,
+video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  will-change: transform;
+}
+
+h1 {
+  margin: 0;
+  padding: 0;
+  text-transform: uppercase;
+  font-family: "FK Screamer";
+  font-size: 15vw;
+  font-weight: 600;
+  line-height: 90%;
+  letter-spacing: 2px;
+  color: #fff;
+}
+
+p {
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 400;
+  color: #fff;
+}
+
+section {
+  width: 100vw;
+  height: 100vh;
+}
+
+.hero {
+  padding: 0 4em 4em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background: url(../img/hero.png) no-repeat 50% 50% / cover;
+}
+
+.hero p {
+  width: 50%;
+  text-align: center;
+}
+
+.header {
+  background: url(../img/img-4.jpeg) no-repeat 50% 50% / cover;
+}
+
+.header h1 {
+  font-size: 2.6vw;
+  color: #000;
+}
+
+.nav {
+  position: fixed;
+  width: 100%;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 4em;
+  background: transparent;
+  z-index: 999;
+}
+
+.nav a {
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #000;
+  padding: 0 1em;
+  font-weight: 500;
+  font-size: 12px;
+}
+
+.logo {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  width: 4.2em;
+}
+
+/* .wrapper {
+  width: 100%;
+  height: 100vh;
+  background: #fff;
+} */
+
+.about {
+  padding: 4em 12em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10em;
+  background-color: #667e74;
+}
+
+.about-img,
+.about-copy {
+  flex: 1;
+}
+
+.about-img {
+  height: 75%;
+  border: 2px solid #000;
+}
+
+.about-copy h1 {
+  text-align: center;
+  font-size: 10vw;
+  color: #263130;
+}
+
+.footer {
+  padding: 2em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: #1d2944;
+}
+
+.sticky {
+  position: relative;
+  perspective: 1000px;
+}
+
+.sticky-2 {
+  position: relative;
+}
+
+.sticky-2 .sticky-footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  padding: 3em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 2;
+}
+
+.sticky-2 .sticky-footer p {
+  font-size: 15px;
+  font-weight: lighter;
+}
+
+.slider-counter {
+  display: flex;
+}
+
+.slider-counter p,
+.slider-counter>div {
+  width: 24px;
+  display: flex;
+  justify-content: center;
+}
+
+.slider-counter p {
+  opacity: .35;
+}
+
+.count {
+  position: relative;
+  height: 18px;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
+.count p {
+  position: absolute;
+  transform: translateY(0);
+  font-size: 16px !important;
+  line-height: 1;
+  will-change: transform;
+  opacity: 1;
+}
+
+.slider {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.slide-bg-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  will-change: clip-path;
+}
+
+.slide-bg-img::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  background-color: rgba(0, 0, 0, .125);
+}
+
+.slide-main-img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 25%;
+  height: 50%;
+  z-index: 2;
+}
+
+.slide-main-img-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  will-change: clip-path;
+}
+
+.slide-copy {
+  position: absolute;
+  top: 50%;
+  left: 30%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  z-index: 2;
+}
+
+.slide-title {
+  position: relative;
+  width: 500px;
+  height: 50px;
+  margin-bottom: 0.75em;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
+.slide-title h2 {
+  position: absolute;
+  color: #fff;
+  font-size: 48px;
+  font-weight: 400;
+  line-height: 1;
+  transform: translateY(0);
+  will-change: transform;
+}
+
+.slide-description {
+  position: relative;
+  width: 500px;
+  height: 20px;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
+.slide-description p {
+  position: absolute;
+  color: #fff;
+  font-size: 18px;
+  font-weight: lighter;
+  line-height: 1;
+  transform: translateY(0);
+  will-change: transform;
+}
+
+.intro {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+  padding: 1em;
+  display: flex;
+  z-index: 2;
+}
+
+.intro-col {
+  flex: 1;
+  display: flex;
+}
+
+.intro-col p {
+  flex: 1;
+}
+
+.intro-col p span {
+  display: inline-block;
+}
+
+.intro-col:nth-child(2) p {
+  text-align: right;
+}
+
+.img-1,
+.img-2,
+.img-3 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.img-2 {
+  clip-path: polygon(40% 25%, 60% 25%, 60% 75%, 40% 75%);
+}
+
+.img-3 {
+  clip-path: polygon(50% 25%, 50% 25%, 50% 75%, 50% 75%);
+}
+
+.img-3 img {
+  transform-origin: top right;
+  transform: scale(3);
+}
+
+.intro-copy {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.copy {
+  width: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotateY(-75deg) scale(0.5);
+  transform-origin: bottom left;
+  display: none;
+}
+
+.copy h1 {
+  font-size: 5.1rem;
+  text-align: center;
+}
+
+@media (max-width: 767.98px) {
+  h1 {
+    font-size: 20vw;
+  }
+
+  .logo {
+    width: 100vw;
+  }
+
+  .nav {
+    padding: 0 1em;
+    display: none;
+  }
+
+  .hero p {
+    width: 100%;
+  }
+
+  .about {
+    padding: 4em 2em;
+    flex-direction: column;
+    gap: 4em;
+  }
+
+  .about-img {
+    width: 100%;
+    height: 50%;
+  }
+
+  .about-copy {
+    flex: 0.5;
+  }
+
+  .about-img {
+    margin-top: 4em;
+    height: 100%;
+  }
+
+  .intro,
+  .intro-col {
+    flex-direction: column;
+  }
+
+  .intro-col p {
+    text-align: center !important;
+  }
+
+  .copy {
+    width: 90%;
+  }
+
+  .copy h1 {
+    font-size: 10vw;
+  }
+
+  .slide-main-img {
+    width: 75%;
+  }
+
+  .slide-copy {
+    top: 60%;
+    left: 50%;
+    width: 100%;
+    padding: 0 15px;
+  }
+
+  .slide-title,
+  .slide-description {
+    width: 100%;
+  }
+}

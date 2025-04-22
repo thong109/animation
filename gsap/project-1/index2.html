@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="sticky-2">
+        <div class="sticky-footer">
+          <p>All Projects</p>
+          <div class="slider-counter">
+            <div class="count">
+              <p>1</p>
+            </div>
+            <p>/</p>
+            <p>7</p>
+          </div>
+        </div>
+
+        <div class="slider">
+          <div class="slide">
+            <div class="slide-bg-img">
+              <img src="./assets/img/img-slide-0.png" alt="" />
+            </div>
+          </div>
+          <div class="slide-main-img">
+            <div class="slide-main-img-wrapper">
+              <img src="./assets/img/img-slide-0.png" alt="" />
+            </div>
+          </div>
+
+          <div class="slide-copy">
+            <div class="slide-title">
+              <h2>Text</h2>
+            </div>
+            <div class="slide-description">
+              <p>Concept</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- <script src="https://unpkg.com/lenis@1.3.0/dist/lenis.min.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/CustomEase.min.js"></script>
+    <script>
+      gsap.registerPlugin(CustomEase);
+      CustomEase.create("myEase", ".87,0,.13,1");
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const totalSlides = 7;
+        let currentSlide = 1;
+        let isAnimating = false;
+        let scrollAllowed = true;
+        let lastScrollTime = 0;
+
+        const slideTitles = ["abc", "abc", "abc", "abc", "abc", "abc", "abc"];
+
+        const slideDescriptions = [
+          "bcd",
+          "bcd",
+          "bcd",
+          "bcd",
+          "bcd",
+          "bcd",
+          "bcd",
+        ];
+
+        function createSlide(slideNumber, direction) {
+          const slide = document.createElement("div");
+          slide.className = "slider";
+
+          const slideBgImg = document.createElement("div");
+          slideBgImg.className = "slide-bg-img";
+
+          const img = document.createElement("img");
+
+          img.src = `./assets/img/img-slide-${slideNumber}.png`;
+          img.alt = "";
+
+          slideBgImg.appendChild(img);
+          slide.appendChild(slideBgImg);
+
+          if (direction === "down") {
+            slideBgImg.style.clipPath =
+              "polygon(0 100%, 100% 100%, 100% 100%, 0 100%)";
+          } else {
+            slideBgImg.style.clipPath = "polygon(0 0 , 100% 0, 100% 0 , 0 0)";
+          }
+
+          return slide;
+        }
+
+        function createMainImageWrapper(slideNumber, direction) {
+          const wrapper = document.createElement("div");
+          wrapper.className = "slide-main-img-wrapper";
+
+          const img = document.createElement("img");
+          img.src = `./assets/img/img-slide-${slideNumber}.png`;
+          img.alt = "";
+
+          wrapper.appendChild(img);
+
+          if (direction === "down") {
+            wrapper.style.clipPath = "polygon(0 0, 100% 0, 100% 0, 0 0)";
+          } else {
+            wrapper.style.clipPath =
+              "polygon(0 100% , 100% 100%, 100% 100% , 0 100%)";
+          }
+
+          return wrapper;
+        }
+
+        function createTextElements(slideNumber, direction) {
+          const newTitle = document.createElement("h2");
+          newTitle.textContent = slideTitles[slideNumber - 1];
+          gsap.set(newTitle, {
+            y: direction === "down" ? 50 : -50,
+          });
+
+          const newDescription = document.createElement("p");
+          newDescription.textContent = slideDescriptions[slideNumber - 1];
+          gsap.set(newDescription, {
+            y: direction === "down" ? 20 : -20,
+          });
+
+          const newCounter = document.createElement("p");
+          newCounter.textContent = slideNumber;
+          gsap.set(newCounter, {
+            y: direction === "down" ? 18 : -18,
+          });
+
+          return { newTitle, newDescription, newCounter };
+        }
+
+        function animateSlide(direction) {
+          if (isAnimating || !scrollAllowed) return;
+
+          isAnimating = true;
+          scrollAllowed = false;
+
+          const slider = document.querySelector(".slider");
+          const currentSlideElement = slider.querySelector(".slide");
+          const mainImageContainer = document.querySelector(".slide-main-img");
+          const currentMainWrapper = mainImageContainer.querySelector(
+            ".slide-main-img-wrapper"
+          );
+
+          const titleContainer = document.querySelector(".slide-title");
+          const descriptionContainer =
+            document.querySelector(".slide-description");
+          const counterContainer = document.querySelector(".count");
+
+          const currentTitle = titleContainer.querySelector("h2");
+          const currentDescription = descriptionContainer.querySelector("p");
+          const currentCounter = counterContainer.querySelector("p");
+
+          if (direction === "down") {
+            currentSlide = currentSlide === totalSlides ? 1 : currentSlide + 1;
+          } else {
+            currentSlide = currentSlide === 1 ? totalSlides : currentSlide - 1;
+          }
+
+          const newSlide = createSlide(currentSlide, direction);
+          const newMainWrapper = createMainImageWrapper(
+            currentSlide,
+            direction
+          );
+
+          const { newTitle, newDescription, newCounter } = createTextElements(
+            currentSlide,
+            direction
+          );
+
+          slider.appendChild(newSlide);
+          mainImageContainer.appendChild(newMainWrapper);
+          titleContainer.appendChild(newTitle);
+          descriptionContainer.appendChild(newDescription);
+          counterContainer.appendChild(newCounter);
+
+          gsap.set(newMainWrapper.querySelector("img"), {
+            y: direction === "down" ? "-50%" : "50%",
+          });
+
+          const tl = gsap.timeline({
+            onComplete: () => {
+              [
+                currentSlideElement,
+                currentMainWrapper,
+                currentTitle,
+                currentDescription,
+                currentCounter,
+              ].forEach((el) => el?.remove());
+
+              isAnimating = false;
+              setTimeout(() => {
+                scrollAllowed = true;
+                lastScrollTime = Date.now();
+              }, 100);
+            },
+          });
+
+          tl.to(
+            newSlide.querySelector(".slide-bg-img"),
+            {
+              clipPath:
+                direction === "down"
+                  ? "polygon(0 100%, 100% 100%, 100% 0 , 0 0)"
+                  : "polygon(0 0, 100% 0 ,100% 100%, 0 100%)",
+            },
+            0
+          )
+            .to(
+              currentSlideElement.querySelector("img"),
+              {
+                scale: 1.5,
+                duration: 1.25,
+                ease: "myEase",
+              },
+              0
+            )
+            .to(
+              newMainWrapper,
+              {
+                clipPath:
+                  direction === "down"
+                    ? "polygon(0 0, 100% 0, 100% 100% , 0 100%)"
+                    : "polygon(0 100%, 100% 100% ,100% 0, 0 0)",
+                duration: 1.25,
+                ease: "myEase",
+              },
+              0
+            )
+            .to(
+              currentMainWrapper.querySelector("img"),
+              {
+                y: direction === "down" ? "-50%" : "50%",
+                duration: 1.25,
+                ease: "myEase",
+              },
+              0
+            )
+            .to(
+              newMainWrapper.querySelector("img"),
+              {
+                y: "0%",
+                duration: 1.25,
+                ease: "myEase",
+              },
+              0
+            )
+            .to(
+              currentTitle,
+              {
+                y: direction === "down" ? -50 : 50,
+                duration: 1.25,
+                ease: "myEase",
+              },
+              0
+            )
+            .to(
+              newTitle,
+              {
+                y: 0,
+                duration: 1.25,
+                ease: "myEase",
+              },
+              0
+            )
+            .to(
+              currentDescription,
+              {
+                y: direction === "down" ? -20 : 20,
+                duration: 1.25,
+                ease: "myEase",
+              },
+              0
+            )
+            .to(
+              newDescription,
+              {
+                y: 0,
+                duration: 1.25,
+                ease: "myEase",
+              },
+              0
+            )
+            .to(
+              currentCounter,
+              {
+                y: direction === "down" ? -18 : 18,
+                duration: 1.25,
+                ease: "myEase",
+              },
+              0
+            )
+            .to(
+              newCounter,
+              {
+                y: 0,
+                duration: 1.25,
+                ease: "myEase",
+              },
+              0
+            );
+        }
+
+        function handleScroll(direction) {
+          const now = Date.now();
+          if (isAnimating || !scrollAllowed) return;
+          if (now - lastScrollTime < 1000) return;
+          lastScrollTime = now;
+          animateSlide(direction);
+        }
+
+        window.addEventListener(
+          "wheel",
+          (e) => {
+            e.preventDefault();
+            const direction = e.deltaY > 0 ? "down" : "up";
+            handleScroll(direction);
+          },
+          { passive: false }
+        );
+
+        let touchStartY = 0;
+        let isTouchActive = false;
+
+        window.addEventListener(
+          "touchstart",
+          (e) => {
+            touchStartY = e.touches[0].clientY;
+            isTouchActive = true;
+          },
+          {
+            passive: false,
+          }
+        );
+
+        window.addEventListener(
+          "touchmove",
+          (e) => {
+            if (!isTouchActive || isAnimating || !scrollAllowed) return;
+            const touchCurrentY = e.touches[0].clientY;
+            const difference = touchStartY - touchCurrentY;
+            if (Math.abs(difference) > 10) {
+              isTouchActive = false;
+              const direction = difference > 0 ? "down" : "up";
+              handleScroll(direction);
+            }
+          },
+          {
+            passive: false,
+          }
+        );
+        window.addEventListener("touchend", () => {
+          isTouchActive = false;
+        });
+      });
+    </script>
+  </body>
+</html>

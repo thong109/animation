@@ -1,251 +1,716 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./assets/css/style.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link rel="stylesheet" href="./style.css">
-</head>
-
-<body>
-  <div class="container">
-    <section class="hero">
-      <h1>Prologue</h1>
-      <p>In the twilight of realms, where all converges, stands Pillar of<br> Zentry: a universe of endless
-        opportunities.</p>
-    </section>
-    <section class="about">
-      <div class="about-img">
-        <img src="./assets/img/img-0.jpeg" alt="">
-      </div>
-      <div class="about-copy">
-        <h1>The Universe Pillar</h1>
-      </div>
-    </section>
-    <section class="sticky">
-      <div class="intro">
-        <div class="intro-col">
-          <p>Hidden depths of the pillar</p>
-          <p>Flowing to the source</p>
+  <body>
+    <div class="container">
+      <section class="header">
+        <div class="nav">
+          <div class="items-left">
+            <a href="">services</a>
+            <a href="">room</a>
+          </div>
+          <div class="items-right">
+            <a href="">about</a>
+            <a href="">contact</a>
+          </div>
         </div>
-        <div class="intro-col">
-          <p>The center of it all</p>
-        </div>
-      </div>
-      <div class="img-1">
-        <img src="./assets/img/img-1.jpg" alt="">
-      </div>
-      <div class="img-2">
-        <img src="./assets/img/img-2.jpg" alt="">
-      </div>
-      <div class="img-3">
-        <img src="./assets/img/img-3.png" alt="">
-      </div>
-      <div class="intro-copy">
-        <div class="copy">
-          <h1>At the heart of Zentry,
-            <br>the secret to shape the fabric
-            <br>of all realms is unveiled
+        <div class="logo-container">
+          <h1 class="logo">
+            <img src="./assets/img/logo.png" alt="" />
           </h1>
         </div>
-      </div>
-    </section>
-    <section class="footer">
-      <h1>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-      </h1>
-    </section>
-  </div>
+      </section>
+      <section class="hero">
+        <h1>Enter</h1>
+      </section>
+      <!-- <div class="sticky-2">
+        <div class="sticky-footer">
+          <p>All Projects</p>
+          <div class="slider-counter">
+            <div class="count">
+              <p>1</p>
+            </div>
+            <p>/</p>
+            <p>7</p>
+          </div>
+        </div>
 
-  <script src="https://unpkg.com/lenis@1.3.0/dist/lenis.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      gsap.registerPlugin(ScrollTrigger);
-      const stickySection = document.querySelector('.sticky');
-      const totalStickyHeight = window.innerHeight * 4;
+        <div class="slider">
+          <div class="slide">
+            <div class="slide-bg-img">
+              <img src="./assets/img/img-slide-0.png" alt="" />
+            </div>
+          </div>
+          <div class="slide-main-img">
+            <div class="slide-main-img-wrapper">
+              <img src="./assets/img/img-slide-0.png" alt="" />
+            </div>
+          </div>
 
-      const lenis = new Lenis();
-      lenis.on('scroll', ScrollTrigger.update);
-      gsap.ticker.add((time) => {
-        lenis.raf(time * 1000);
-      });
-      gsap.ticker.lagSmoothing(0);
+          <div class="slide-copy">
+            <div class="slide-title">
+              <h2>Text</h2>
+            </div>
+            <div class="slide-description">
+              <p>Concept</p>
+            </div>
+          </div>
+        </div>
+      </div> -->
+      <section class="about">
+        <div class="about-img">
+          <picture>
+            <source srcset="./assets/img/img-0.webp" type="image/webp" />
+            <source srcset="./assets/img/img-0.jpg" type="image/jpeg" />
+            <img src="./assets/img/img-0.jpg" alt="Ảnh fallback" />
+          </picture>
+        </div>
+        <div class="about-copy">
+          <h1>The Universe Pillar</h1>
+        </div>
+      </section>
+      <section class="sticky">
+        <div class="intro">
+          <div class="intro-col">
+            <p>Hidden depths of the pillar</p>
+            <p>Flowing to the source</p>
+          </div>
+          <div class="intro-col">
+            <p>The center of it all</p>
+          </div>
+        </div>
+        <div class="img-1">
+          <picture>
+            <source srcset="./assets/img/img-1.webp" type="image/webp" />
+            <source srcset="./assets/img/img-1.jpg" type="image/jpeg" />
+            <img src="./assets/img/img-1.jpg" alt="Ảnh fallback" />
+          </picture>
+        </div>
+        <div class="img-2">
+          <picture>
+            <source srcset="./assets/img/img-2.webp" type="image/webp" />
+            <source srcset="./assets/img/img-2.jpg" type="image/jpeg" />
+            <img src="./assets/img/img-2.jpg" alt="Ảnh fallback" />
+          </picture>
+        </div>
+        <div class="img-3">
+          <!-- <picture>
+            <source srcset="./assets/img/img-3.webp" type="image/webp" />
+            <source srcset="./assets/img/img-3.jpeg" type="image/jpeg" />
+            <img src="./assets/img/img-3.jpeg" alt="Ảnh fallback" />
+          </picture> -->
+          <video autoplay muted loop playsinline width="100%">
+            <source src="./assets/video/video-3.webm" type="video/webm" />
+            <source src="./assets/video/video-3.mp4" type="video/mp4" />
+            Trình duyệt của bạn không hỗ trợ video HTML5.
+          </video>
+        </div>
+        <div class="intro-copy">
+          <div class="copy">
+            <h1>
+              At the heart of Zentry, <br />the secret to shape the fabric
+              <br />of all realms is unveiled
+            </h1>
+          </div>
+        </div>
+      </section>
+      <section class="footer">
+        <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h1>
+      </section>
+    </div>
 
-      const introParagraphs = document.querySelectorAll('.intro-col p');
+    <script src="https://unpkg.com/lenis@1.3.0/dist/lenis.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/CustomEase.min.js"></script>
+    <script>
+      gsap.registerPlugin(CustomEase);
+      CustomEase.create("myEase", ".87,0,.13,1");
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        gsap.registerPlugin(ScrollTrigger);
+        const stickySection = document.querySelector(".sticky");
+        const totalStickyHeight = window.innerHeight * 4;
+        // const totalSlides = 7;
+        // let currentSlide = 1;
+        // let isAnimating = false;
+        // let scrollAllowed = true;
+        // let lastScrollTime = 0;
 
-      introParagraphs.forEach((paragraph) => {
-        const text = paragraph.textContent;
+        // const slideTitles = ["abc", "abc", "abc", "abc", "abc", "abc", "abc"];
 
-        paragraph.innerHTML = text
-          .split(/(\s+)/) // tách theo khoảng trắng, giữ nguyên dấu cách
-          .map((part) => {
-            if (part.trim() === "") {
-              return part; // giữ nguyên khoảng trắng
-            } else {
-              return part
-                .split("")
-                .map((char) => {
-                  return `<span style="opacity: 0; display: inline-block;">${char}</span>`;
-                })
-                .join("");
-            }
-          })
-          .join("");
-      });
+        // const slideDescriptions = [
+        //   "bcd",
+        //   "bcd",
+        //   "bcd",
+        //   "bcd",
+        //   "bcd",
+        //   "bcd",
+        //   "bcd",
+        // ];
 
-      function flickerAnimation(targets, toOpacity) {
-        gsap.to(targets, {
-          opacity: toOpacity,
-          duration: .05,
-          stagger: {
-            amount: .3,
-            from: "random",
-          }
-        })
-      }
+        const lenis = new Lenis();
+        lenis.on("scroll", ScrollTrigger.update);
+        gsap.ticker.add((time) => {
+          lenis.raf(time * 1000);
+        });
+        gsap.ticker.lagSmoothing(0);
 
-      ScrollTrigger.create({
-        trigger: stickySection,
-        start: "top top",
-        end: () => `${window.innerHeight * 3}`,
-        onEnter: () => flickerAnimation('.intro-col p span', 1),
-        onLeave: () => flickerAnimation('.intro-col p span', 0),
-        onEnterBack: () => flickerAnimation('.intro-col p span', 1),
-        onLeaveBack: () => flickerAnimation('.intro-col p span', 0),
-      })
+        const introParagraphs = document.querySelectorAll(".intro-col p");
 
-      ScrollTrigger.create({
-        trigger: stickySection,
-        start: "top top",
-        end: () => `+=${totalStickyHeight}`,
-        pin: true,
-        pinSpacing: true,
-      });
+        introParagraphs.forEach((paragraph) => {
+          const text = paragraph.textContent;
 
-      gsap.to('.img-1 img', {
-        scale: 1.125,
-        ease: "none",
-        scrollTrigger: {
+          paragraph.innerHTML = text
+            .split(/(\s+)/) // tách theo khoảng trắng, giữ nguyên dấu cách
+            .map((part) => {
+              if (part.trim() === "") {
+                return part; // giữ nguyên khoảng trắng
+              } else {
+                return part
+                  .split("")
+                  .map((char) => {
+                    return `<span style="opacity: 0; display: inline-block;">${char}</span>`;
+                  })
+                  .join("");
+              }
+            })
+            .join("");
+        });
+
+        function flickerAnimation(targets, toOpacity) {
+          gsap.to(targets, {
+            opacity: toOpacity,
+            duration: 0.05,
+            stagger: {
+              amount: 0.3,
+              from: "random",
+            },
+          });
+        }
+
+        ScrollTrigger.create({
+          trigger: stickySection,
+          start: "top top",
+          end: () => `${window.innerHeight * 4}`,
+          onEnter: () => flickerAnimation(".intro-col p span", 1),
+          onLeave: () => flickerAnimation(".intro-col p span", 0),
+          onEnterBack: () => flickerAnimation(".intro-col p span", 1),
+          onLeaveBack: () => flickerAnimation(".intro-col p span", 0),
+        });
+
+        ScrollTrigger.create({
           trigger: stickySection,
           start: "top top",
           end: () => `+=${totalStickyHeight}`,
-          scrub: true,
-        }
-      });
+          pin: true,
+          pinSpacing: true,
+        });
 
-      gsap.to('.img-2', {
-        clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
-        ease: "none",
-        scrollTrigger: {
-          trigger: stickySection,
-          start: "top top",
-          end: () => `+=${window.innerHeight}`,
-          scrub: true,
-          onUpdate: (self) => {
-            const progress = self.progress;
-            const clipPathValue = `polygon(
-              ${gsap.utils.interpolate(40, 0, progress)}% ${gsap.utils.interpolate(25, 0, progress)}%,
-              ${gsap.utils.interpolate(60, 100, progress)}% ${gsap.utils.interpolate(25, 0, progress)}%,
-              ${gsap.utils.interpolate(60, 100, progress)}% ${gsap.utils.interpolate(75, 100, progress)}%,
-              ${gsap.utils.interpolate(40, 0, progress)}% ${gsap.utils.interpolate(75, 100, progress)}%
+        ScrollTrigger.matchMedia({
+          // Mobile (max-width: 767px)
+          "(max-width: 767px)": function () {
+            ScrollTrigger.create({
+              animation: gsap.from(".logo", {
+                y: "20vh",
+                scale: 1,
+                rotate: 360,
+                yPercent: -50,
+              }),
+              scrub: true,
+              trigger: ".hero",
+              start: "top bottom",
+              endTrigger: ".hero",
+              end: "top center",
+            });
+          },
+
+          // Desktop (min-width: 768px)
+          "(min-width: 768px)": function () {
+            ScrollTrigger.create({
+              animation: gsap.from(".logo", {
+                y: "50vh",
+                scale: 6,
+                rotate: 360,
+                yPercent: -50,
+              }),
+              scrub: true,
+              trigger: ".hero",
+              start: "top bottom",
+              endTrigger: ".hero",
+              end: "top center",
+            });
+          },
+        });
+
+        // function createSlide(slideNumber, direction) {
+        //   const slide = document.createElement("div");
+        //   slide.className = "slider";
+
+        //   const slideBgImg = document.createElement("div");
+        //   slideBgImg.className = "slide-bg-img";
+
+        //   const img = document.createElement("img");
+
+        //   img.src = `./assets/img/img-slide-${slideNumber}.png`;
+        //   img.alt = "";
+
+        //   slideBgImg.appendChild(img);
+        //   slide.appendChild(slideBgImg);
+
+        //   if (direction === "down") {
+        //     slideBgImg.style.clipPath =
+        //       "polygon(0 100%, 100% 100%, 100% 100%, 0 100%)";
+        //   } else {
+        //     slideBgImg.style.clipPath = "polygon(0 0 , 100% 0, 100% 0 , 0 0)";
+        //   }
+
+        //   return slide;
+        // }
+
+        // function createMainImageWrapper(slideNumber, direction) {
+        //   const wrapper = document.createElement("div");
+        //   wrapper.className = "slide-main-img-wrapper";
+
+        //   const img = document.createElement("img");
+        //   img.src = `./assets/img/img-slide-${slideNumber}.png`;
+        //   img.alt = "";
+
+        //   wrapper.appendChild(img);
+
+        //   if (direction === "down") {
+        //     wrapper.style.clipPath = "polygon(0 0, 100% 0, 100% 0, 0 0)";
+        //   } else {
+        //     wrapper.style.clipPath =
+        //       "polygon(0 100% , 100% 100%, 100% 100% , 0 100%)";
+        //   }
+
+        //   return wrapper;
+        // }
+
+        // function createTextElements(slideNumber, direction) {
+        //   const newTitle = document.createElement("h2");
+        //   newTitle.textContent = slideTitles[slideNumber - 1];
+        //   gsap.set(newTitle, {
+        //     y: direction === "down" ? 50 : -50,
+        //   });
+
+        //   const newDescription = document.createElement("p");
+        //   newDescription.textContent = slideDescriptions[slideNumber - 1];
+        //   gsap.set(newDescription, {
+        //     y: direction === "down" ? 20 : -20,
+        //   });
+
+        //   const newCounter = document.createElement("p");
+        //   newCounter.textContent = slideNumber;
+        //   gsap.set(newCounter, {
+        //     y: direction === "down" ? 18 : -18,
+        //   });
+
+        //   return { newTitle, newDescription, newCounter };
+        // }
+
+        // function animateSlide(direction) {
+        //   if (isAnimating || !scrollAllowed) return;
+
+        //   isAnimating = true;
+        //   scrollAllowed = false;
+
+        //   const slider = document.querySelector(".slider");
+        //   const currentSlideElement = slider.querySelector(".slide");
+        //   const mainImageContainer = document.querySelector(".slide-main-img");
+        //   const currentMainWrapper = mainImageContainer.querySelector(
+        //     ".slide-main-img-wrapper"
+        //   );
+
+        //   const titleContainer = document.querySelector(".slide-title");
+        //   const descriptionContainer =
+        //     document.querySelector(".slide-description");
+        //   const counterContainer = document.querySelector(".count");
+
+        //   const currentTitle = titleContainer.querySelector("h2");
+        //   const currentDescription = descriptionContainer.querySelector("p");
+        //   const currentCounter = counterContainer.querySelector("p");
+
+        //   if (direction === "down") {
+        //     currentSlide = currentSlide === totalSlides ? 1 : currentSlide + 1;
+        //   } else {
+        //     currentSlide = currentSlide === 1 ? totalSlides : currentSlide - 1;
+        //   }
+
+        //   const newSlide = createSlide(currentSlide, direction);
+        //   const newMainWrapper = createMainImageWrapper(
+        //     currentSlide,
+        //     direction
+        //   );
+
+        //   const { newTitle, newDescription, newCounter } = createTextElements(
+        //     currentSlide,
+        //     direction
+        //   );
+
+        //   slider.appendChild(newSlide);
+        //   mainImageContainer.appendChild(newMainWrapper);
+        //   titleContainer.appendChild(newTitle);
+        //   descriptionContainer.appendChild(newDescription);
+        //   counterContainer.appendChild(newCounter);
+
+        //   gsap.set(newMainWrapper.querySelector("img"), {
+        //     y: direction === "down" ? "-50%" : "50%",
+        //   });
+
+        //   const tl = gsap.timeline({
+        //     onComplete: () => {
+        //       [
+        //         currentSlideElement,
+        //         currentMainWrapper,
+        //         currentTitle,
+        //         currentDescription,
+        //         currentCounter,
+        //       ].forEach((el) => el?.remove());
+
+        //       isAnimating = false;
+        //       setTimeout(() => {
+        //         scrollAllowed = true;
+        //         lastScrollTime = Date.now();
+        //       }, 100);
+        //     },
+        //   });
+
+        //   tl.to(
+        //     newSlide.querySelector(".slide-bg-img"),
+        //     {
+        //       clipPath:
+        //         direction === "down"
+        //           ? "polygon(0 100%, 100% 100%, 100% 0 , 0 0)"
+        //           : "polygon(0 0, 100% 0 ,100% 100%, 0 100%)",
+        //     },
+        //     0
+        //   )
+        //     .to(
+        //       currentSlideElement.querySelector("img"),
+        //       {
+        //         scale: 1.5,
+        //         duration: 1.25,
+        //         ease: "myEase",
+        //       },
+        //       0
+        //     )
+        //     .to(
+        //       newMainWrapper,
+        //       {
+        //         clipPath:
+        //           direction === "down"
+        //             ? "polygon(0 0, 100% 0, 100% 100% , 0 100%)"
+        //             : "polygon(0 100%, 100% 100% ,100% 0, 0 0)",
+        //         duration: 1.25,
+        //         ease: "myEase",
+        //       },
+        //       0
+        //     )
+        //     .to(
+        //       currentMainWrapper.querySelector("img"),
+        //       {
+        //         y: direction === "down" ? "-50%" : "50%",
+        //         duration: 1.25,
+        //         ease: "myEase",
+        //       },
+        //       0
+        //     )
+        //     .to(
+        //       newMainWrapper.querySelector("img"),
+        //       {
+        //         y: "0%",
+        //         duration: 1.25,
+        //         ease: "myEase",
+        //       },
+        //       0
+        //     )
+        //     .to(
+        //       currentTitle,
+        //       {
+        //         y: direction === "down" ? -50 : 50,
+        //         duration: 1.25,
+        //         ease: "myEase",
+        //       },
+        //       0
+        //     )
+        //     .to(
+        //       newTitle,
+        //       {
+        //         y: 0,
+        //         duration: 1.25,
+        //         ease: "myEase",
+        //       },
+        //       0
+        //     )
+        //     .to(
+        //       currentDescription,
+        //       {
+        //         y: direction === "down" ? -20 : 20,
+        //         duration: 1.25,
+        //         ease: "myEase",
+        //       },
+        //       0
+        //     )
+        //     .to(
+        //       newDescription,
+        //       {
+        //         y: 0,
+        //         duration: 1.25,
+        //         ease: "myEase",
+        //       },
+        //       0
+        //     )
+        //     .to(
+        //       currentCounter,
+        //       {
+        //         y: direction === "down" ? -18 : 18,
+        //         duration: 1.25,
+        //         ease: "myEase",
+        //       },
+        //       0
+        //     )
+        //     .to(
+        //       newCounter,
+        //       {
+        //         y: 0,
+        //         duration: 1.25,
+        //         ease: "myEase",
+        //       },
+        //       0
+        //     );
+        // }
+
+        // function handleScroll(direction) {
+        //   const now = Date.now();
+        //   if (isAnimating || !scrollAllowed) return;
+        //   if (now - lastScrollTime < 1000) return;
+        //   lastScrollTime = now;
+        //   animateSlide(direction);
+        // }
+
+        // window.addEventListener(
+        //   "wheel",
+        //   (e) => {
+        //     e.preventDefault();
+        //     const direction = e.deltaY > 0 ? "down" : "up";
+        //     handleScroll(direction);
+        //   },
+        //   { passive: false }
+        // );
+
+        // let touchStartY = 0;
+        // let isTouchActive = false;
+
+        // window.addEventListener(
+        //   "touchstart",
+        //   (e) => {
+        //     touchStartY = e.touches[0].clientY;
+        //     isTouchActive = true;
+        //   },
+        //   {
+        //     passive: false,
+        //   }
+        // );
+
+        // window.addEventListener(
+        //   "touchmove",
+        //   (e) => {
+        //     if (!isTouchActive || isAnimating || !scrollAllowed) return;
+        //     const touchCurrentY = e.touches[0].clientY;
+        //     const difference = touchStartY - touchCurrentY;
+        //     if (Math.abs(difference) > 10) {
+        //       isTouchActive = false;
+        //       const direction = difference > 0 ? "down" : "up";
+        //       handleScroll(direction);
+        //     }
+        //   },
+        //   {
+        //     passive: false,
+        //   }
+        // );
+        // window.addEventListener("touchend", () => {
+        //   isTouchActive = false;
+        // });
+
+        gsap.to(".logo", {
+          opacity: 0,
+          scrollTrigger: {
+            trigger: ".intro",
+            start: "top 80%",
+            end: "top 50%",
+            scrub: true,
+          },
+        });
+
+        gsap.to(".img-1 img", {
+          scale: 1.125,
+          ease: "none",
+          scrollTrigger: {
+            trigger: stickySection,
+            start: "top top",
+            end: () => `+=${totalStickyHeight}`,
+            scrub: true,
+          },
+        });
+
+        gsap.to(".img-2", {
+          clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
+          ease: "none",
+          scrollTrigger: {
+            trigger: stickySection,
+            start: "top top",
+            end: () => `+=${window.innerHeight}`,
+            scrub: true,
+            onUpdate: (self) => {
+              const progress = self.progress;
+              const clipPathValue = `polygon(
+              ${gsap.utils.interpolate(
+                40,
+                0,
+                progress
+              )}% ${gsap.utils.interpolate(25, 0, progress)}%,
+              ${gsap.utils.interpolate(
+                60,
+                100,
+                progress
+              )}% ${gsap.utils.interpolate(25, 0, progress)}%,
+              ${gsap.utils.interpolate(
+                60,
+                100,
+                progress
+              )}% ${gsap.utils.interpolate(75, 100, progress)}%,
+              ${gsap.utils.interpolate(
+                40,
+                0,
+                progress
+              )}% ${gsap.utils.interpolate(75, 100, progress)}%
             )`;
 
-            gsap.set('.img-2', { clipPath: clipPathValue });
-          }
-        }
-      });
+              gsap.set(".img-2", { clipPath: clipPathValue });
+            },
+          },
+        });
 
-      gsap.to('.img-2 img', {
-        scale: 1.125,
-        ease: "none",
-        scrollTrigger: {
-          trigger: stickySection,
-          start: "top top",
-          end: () => `+=${window.innerHeight}`,
-          scrub: true,
-        }
-      });
+        gsap.to(".img-2 img", {
+          scale: 1.125,
+          ease: "none",
+          scrollTrigger: {
+            trigger: stickySection,
+            start: "top top",
+            end: () => `+=${window.innerHeight}`,
+            scrub: true,
+          },
+        });
 
-      gsap.to('.img-3', {
-        clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
-        ease: "none",
-        scrollTrigger: {
-          trigger: stickySection,
-          start: `${window.innerHeight * 3}`,
-          end: () => `${window.innerHeight * 4}`,
-          scrub: true,
-          onUpdate: (self) => {
-            const progress = self.progress;
-            const clipPathValue = `polygon(
-              ${gsap.utils.interpolate(50, 0, progress)}% ${gsap.utils.interpolate(50, 0, progress)}%,
-              ${gsap.utils.interpolate(50, 100, progress)}% ${gsap.utils.interpolate(50, 0, progress)}%,
-              ${gsap.utils.interpolate(50, 100, progress)}% ${gsap.utils.interpolate(50, 100, progress)}%,
-              ${gsap.utils.interpolate(50, 0, progress)}% ${gsap.utils.interpolate(50, 100, progress)}%
+        gsap.to(".img-3", {
+          clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
+          ease: "none",
+          scrollTrigger: {
+            trigger: stickySection,
+            start: `${window.innerHeight * 4}`,
+            end: () => `${window.innerHeight * 5}`,
+            scrub: true,
+            onUpdate: (self) => {
+              const progress = self.progress;
+              const clipPathValue = `polygon(
+              ${gsap.utils.interpolate(
+                50,
+                0,
+                progress
+              )}% ${gsap.utils.interpolate(50, 0, progress)}%,
+              ${gsap.utils.interpolate(
+                50,
+                100,
+                progress
+              )}% ${gsap.utils.interpolate(50, 0, progress)}%,
+              ${gsap.utils.interpolate(
+                50,
+                100,
+                progress
+              )}% ${gsap.utils.interpolate(50, 100, progress)}%,
+              ${gsap.utils.interpolate(
+                50,
+                0,
+                progress
+              )}% ${gsap.utils.interpolate(50, 100, progress)}%
             )`;
 
-            gsap.set('.img-3', { clipPath: clipPathValue });
+              gsap.set(".img-3", { clipPath: clipPathValue });
+            },
+          },
+        });
+
+        gsap.fromTo(
+          ".img-2 img",
+          {
+            scale: 1.125,
+          },
+          {
+            scale: 1.25,
+            ease: "none",
+            scrollTrigger: {
+              trigger: stickySection,
+              start: () => `${window.innerHeight * 3}`,
+              end: () => `${window.innerHeight * 4}`,
+              scrub: true,
+            },
           }
-        }
+        );
+
+        gsap.to(".img-3 video", {
+          scale: 2.9,
+          ease: "none",
+          scrollTrigger: {
+            trigger: stickySection,
+            start: () => `${window.innerHeight * 3}`,
+            end: () => `${window.innerHeight * 4}`,
+            scrub: true,
+          },
+        });
+
+        gsap.fromTo(
+          ".img-3 video",
+          {
+            scale: 2.9,
+          },
+          {
+            scale: 1,
+            ease: "none",
+            scrollTrigger: {
+              trigger: stickySection,
+              start: () => `${window.innerHeight * 4}`,
+              end: () => `${window.innerHeight * 7}`,
+              scrub: true,
+            },
+          }
+        );
+
+        let tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: stickySection,
+            start: () => `${window.innerHeight * 5}`,
+            end: () => `${window.innerHeight * 6}`,
+            scrub: true,
+            toggleActions: "play reverse play reverse",
+          },
+        });
+
+        tl.to(".copy", {
+          display: "block",
+          rotateY: 0,
+          scale: 1,
+          duration: 1,
+        });
       });
-
-      gsap.fromTo('.img-2 img', {
-        scale: 1.125
-      }, {
-        scale: 1.25,
-        ease: "none",
-        scrollTrigger: {
-          trigger: stickySection,
-          start: () => `${window.innerHeight * 3}`,
-          end: () => `${window.innerHeight * 4}`,
-          scrub: true,
-        }
-      });
-
-      gsap.to('.img-3 img', {
-        scale: 2.9,
-        ease: "none",
-        scrollTrigger: {
-          trigger: stickySection,
-          start: () => `${window.innerHeight * 3}`,
-          end: () => `${window.innerHeight * 4}`,
-          scrub: true,
-        }
-      });
-
-      gsap.fromTo('.img-3 img', {
-        scale: 2.9
-      }, {
-        scale: 1,
-        ease: "none",
-        scrollTrigger: {
-          trigger: stickySection,
-          start: () => `${window.innerHeight * 4}`,
-          end: () => `${window.innerHeight * 6}`,
-          scrub: true,
-        }
-      });
-
-      let tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: stickySection,
-          start: () => `${window.innerHeight * 4.5}`,
-          end: () => `${window.innerHeight * 5.5}`,
-          scrub: true,
-          toggleActions: "play reverse play reverse",
-        }
-      });
-
-      tl.to('.copy', {
-        display: "block",
-        rotateY: 0,
-        scale: 1,
-        duration: 1,
-      })
-    });
-  </script>
-</body>
-
+    </script>
+  </body>
 </html>
