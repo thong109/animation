@@ -1,4 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&family=Roboto:ital,wght@0,100..900;1,100..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url("https://fonts.cdnfonts.com/css/pp-neue-montreal");
 
 @font-face {
   font-family: "FK Screamer";
@@ -18,6 +20,7 @@ body {
   font-family: "Roboto", monospace;
   width: 100%;
   height: 100%;
+  background: #000;
 }
 
 .container {
@@ -45,7 +48,6 @@ h1 {
 }
 
 p {
-  text-transform: uppercase;
   font-size: 14px;
   font-weight: 400;
   color: #fff;
@@ -54,6 +56,8 @@ p {
 section {
   width: 100vw;
   height: 100vh;
+  position: relative;
+  z-index: 1;
 }
 
 .hero {
@@ -107,6 +111,7 @@ section {
   transform: translateX(-50%);
   z-index: 1000;
   width: 4.2em;
+  pointer-events: none;
 }
 
 /* .wrapper {
@@ -120,7 +125,6 @@ section {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 10em;
   background-color: #667e74;
 }
 
@@ -131,7 +135,29 @@ section {
 
 .about-img {
   height: 75%;
-  border: 2px solid #000;
+  position: relative;
+}
+
+/* .about-img img {
+  mask-image: url(../img/mask/mask-2.svg);
+  -webkit-mask-image: url(../img/mask/mask-2.svg);
+  mask-size: 100% 100%;
+  mask-repeat: no-repeat;
+  animation: animate-blob 4s ease-in-out infinite;
+} */
+
+@keyframes animate-blob {
+  0% {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  }
+
+  50% {
+    border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+  }
+
+  100% {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  }
 }
 
 .about-copy h1 {
@@ -344,11 +370,11 @@ section {
 }
 
 .img-2 {
-  clip-path: polygon(40% 25%, 60% 25%, 60% 75%, 40% 75%);
+  clip-path: polygon(0% 0%, 0% 0%, 0% 0%, 0% 0%);
 }
 
 .img-3 {
-  clip-path: polygon(50% 25%, 50% 25%, 50% 75%, 50% 75%);
+  clip-path: polygon(0% 0%, 0% 0%, 0% 0%, 0% 0%);
 }
 
 .img-3 img {
@@ -370,7 +396,6 @@ section {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) rotateY(-75deg) scale(0.5);
-  transform-origin: bottom left;
   display: none;
 }
 
@@ -449,4 +474,145 @@ section {
   .slide-description {
     width: 100%;
   }
+}
+
+.slider-anime {
+  font-family: "Poppins", sans-serif;
+  color: #fff;
+  display: flex;
+  background: #000;
+}
+
+.slider-anime .image-preview {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  transition: all 1s cubic-bezier(.08, .82, .17, 1);
+  clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0 100%);
+}
+
+.slider-anime .image-preview:hover {
+  flex: 2;
+}
+
+.slider-anime .image-preview img {
+  transition: all 1s cubic-bezier(.08, .82, .17, 1);
+}
+
+.slider-anime .image-preview:hover img {
+  opacity: 1 !important;
+}
+
+.slider-anime .image-preview .overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%);
+  opacity: 0;
+  transform: translateY(10%);
+  transition: all 1s cubic-bezier(.08, .82, .17, 1);
+}
+
+.slider-anime .image-preview:hover .overlay {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.slider-anime .image-preview .overlay .desc {
+  position: absolute;
+  bottom: 3rem;
+  padding: 1rem;
+  opacity: 0;
+  transform: translateY(100%);
+  transition: all .5s cubic-bezier(.23, 1, .32, 1);
+}
+
+.slider-anime .image-preview .overlay .desc p {
+  flex: 0 0 auto;
+  width: calc(100% - 60px);
+}
+
+.slider-anime .image-preview .overlay .desc h1 {
+  margin-bottom: 1rem;
+}
+
+.slider-anime .image-preview:hover .overlay .desc {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.slider-anime .image-preview video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: none;
+}
+
+.slider-anime .image-preview:hover video {
+  display: block;
+}
+
+@media (max-width: 767.98px) {
+  .slider-anime {
+    flex-direction: column;
+  }
+}
+
+.introduction {
+  font-family: "PP Neue Montreal";
+}
+
+.introduction-section {
+  margin: 150vh 0;
+}
+
+.introduction h1 {
+  font-family: "PP Neue Montreal";
+  font-size: 14vw;
+  color: #fff;
+  font-weight: 400;
+  letter-spacing: -.025em;
+  text-align: center;
+}
+
+.introduction p {
+  color: #fff;
+  font-family: "PP Neue Montreal";
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.introduction-coppy {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+}
+
+.introduction-preview {
+  position: fixed;
+  width: 500px;
+  height: 700px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+}
+
+.introduction-img {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0 100%);
+  overflow: hidden;
+}
+
+.spacer {
+  width: 100%;
+  height: 200px;
 }
